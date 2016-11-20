@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -23,13 +23,13 @@
   
     <link rel="icon" href="/img/catblog.jpg">
   
-  <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/main.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div class="left-col">
       <div class="overlay"></div>
 <div class="intrude-less">
@@ -44,6 +44,8 @@
 		  <h1 class="header-author"><a href="/">王倩</a></h1>
 		</hgroup>
 
+		
+		<p class="header-subtitle">我的小宇宙</p>
 		
 
 		<nav class="header-menu">
@@ -113,6 +115,8 @@
 			  <h1 class="header-author">王倩</h1>
 			</hgroup>
 			
+			<p class="header-subtitle">我的小宇宙</p>
+			
 			<nav class="header-menu">
 				<ul>
 				
@@ -142,6 +146,85 @@
       <div class="body-wrap">
         
   
+    <article id="post-最大熵读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/13/最大熵读书笔记/">最大熵读书笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##最大熵<br>熵是一个热力学概念，用来衡量一个系统的混乱度。 熵越大表示系统越混乱，且在外界不做功的情况下，系统总是朝着熵增的方向发展。在信息论中，香农借用熵的概念，提出了信息熵，具体计算公式如下：<br>H(P)=−∑P(x)logP(x)<br>从公式可推出结论：<br>0=&lt;H(P)&lt;=log|X|, |X|为随机变量X的所有取值个数，当且仅当X均匀分布时H(P)取到最大值。<br>下面是一些常见的熵函数定义：</p>
+<ul>
+<li>联合熵：两个随机变量X，Y的联合分布</li>
+</ul>
+<ul>
+<li>条件熵:在X发生的前提下，Y发生所“新”带来的熵定义为Y的条件熵</li>
+</ul>
+<ul>
+<li>交叉熵:又称相对熵，交叉熵在自然语言中用的很多，很多神经网络的代价函数都采用交叉熵进行计算。</li>
+</ul>
+<ul>
+<li><a href="http://https://zh.wikipedia.org/wiki/%E4%BA%92%E4%BF%A1%E6%81%AF" target="_blank" rel="external">互信息</a>：变量间相互依赖程度。度量知道这两个变量其中一个，对另一个不确定度减少的程度。<br>##最大熵的基本思想<br>对观察到的数据进行建模，出的概率模型满足所有已知条件，对未知的情况不作任何假设。<br>##最大熵的形式化定义<br><strong>最大熵原理：</strong>在一定约束条件下，熵最大的概率模型是最好的。<br>最大熵模型是基于最大熵原理。我们用特征函数来描述约束条件。约束条件可以这样表述：特征函数的经验期望和模型期望应该相等。<br>给一个训练集：T ={(x1, y1),(x2, y2),(x3, y3),…(xn,yn)}，可以确定联合分布P(X, Y)和边缘分布P(X)的经验分布</li>
+</ul>
+<p>$$\hat P(X=x, Y=y)={V(X=x, Y=y)\over N};\hat P(X=x)={V(X=x)\over N}$$<br>用特征函数（feature function）f(x, y)描述输入x和输出y之间的某一个事实</p>
+<p>$$f(x,y) =<br>\begin{cases}<br>1,  &amp; x与y满足某一事实 \[2ex]<br>0, &amp; 否则<br>\end{cases}$$</p>
+<p>特征函数f关于经验分布的期望值有:</p>
+<p>$$E<em>{\hat P}(f)=\sum</em>{x,y}\hat P(x,y)f(x,y)$$</p>
+<p>P(Y∣X)是最大熵模型的输出.特征函数f关于模型与经验边缘分布的期望值有:<br>$$E<em>{P}(f)=\sum</em>{x,y}\hat P(x)P(y|x)f(x,y)$$<br>如果模型能获取样本中的数据信息，那么这两个期望值相等，即：<br>$$E<em>{\hat P}(f) = E</em>{P}(f)$$<br>有n个特征函数就有n个约束条件<br>最大熵模型<br>假设满足所有约束条件的模型集合为：<br>$$C = {P\in \mathcal P|E_{\hat P}(f<em>i)=E</em>{P}(f<em>i),i=1,2…n}$$<br>定义在条件概率分布P(Y|X)上的条件熵为：<br>$$H(P)=-\sum</em>{x,y}\hat P(x)P(y|x)\log P(y|x)$$<br>最大熵模型即为模型空间中熵值最大的模型<br>最大熵模型学习<br>$$\min<em>{P\in C} -H(P)\ \ \ s.t.\ E</em>{\hat P}(f<em>i)=E</em>{P}(f<em>i),\sum</em>{y}P(y|x)=1$$<br>对于有约束条件的最值问题，可以考虑拉格朗日乘数法。<br>模型参数求解<br>最大熵模型的最优化算法有很多，比如，改进的迭代尺度法（IIS），拟牛顿法，以及BFGS。有数数学水平有限，在这里不做表述。<br>应用<br>最大熵模型最后求出的是一个最优的概率分布，可以用来分词、词性标注、文本分类，相关的论文有：<a href="http://http://www.cnki.com.cn/Article/CJFDTotal-JFYZ200501013.htm" target="_blank" rel="external">使用最大熵进行文本分类</a>、<a href="http://http://www.cqvip.com/qk/90818x/200409/10465209.html" target="_blank" rel="external">关键词自动标引的最大熵模型</a><br>相关的工具有：</p>
+<ul>
+<li>张乐博士写的最大熵工具包：<a href="http://https://github.com/lzhang10/maxent" target="_blank" rel="external">maxent</a></li>
+</ul>
+<ul>
+<li>opennlp工具。这个可以在java开发环境下使用，里面包含最大熵的实现。<br>##比较好的学习资料：</li>
+</ul>
+<ul>
+<li><a href="http://http://homepages.inf.ed.ac.uk/lzhang10/maxent.html" target="_blank" rel="external">maximum主页</a></li>
+</ul>
+<ul>
+<li><a href="http://http://www.isi.edu/natural-language/people/ravichan/papers/bergeretal96.pdf" target="_blank" rel="external">maximum入门论文</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/13/最大熵读书笔记/" class="archive-article-date">
+  	<time datetime="2016-11-13T11:01:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>Nov 13 2016</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/统计学习方法/">统计学习方法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-博文首语" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,12 +243,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>周末搭建了一个博客，以后就在这里写文章了。文章内容包括但不限于：</p>
+        <p>周末搭建了一个博客，以后就在这里写文章了。文章类型包括但不限于：</p>
 <ul>
 <li><strong>编程</strong>：主要是数据结构、算法</li>
 </ul>
 <ul>
-<li><strong>java学习</strong></li>
+<li><p><strong>java学习</strong></p>
+</li>
+<li><p><strong>机器学习</strong>： 机器学习算法</p>
+</li>
 </ul>
 <ul>
 <li><strong>数据分析</strong>：专业文章、代码分析</li>
@@ -176,7 +262,7 @@
 <ul>
 <li><strong>随笔</strong>：生活感悟</li>
 </ul>
-<p>暂拟这么多了，想到了再补充 :)</p>
+<p>暂拟这么多，想到了再补充 :)</p>
 <p><img src="http://i.imgur.com/INi0VYE.jpg" alt=""></p>
 
       
@@ -323,7 +409,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    				<a href="/tags/统计学习方法/" style="font-size: 10px;">统计学习方法</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
     			</div>
     	</section>
     
@@ -426,6 +512,23 @@
     </div>
 
 </div>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
